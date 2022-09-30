@@ -1,0 +1,30 @@
+
+// https://jsfiddle.net/Sumosit/6vb5qukt/1/
+
+const url = "https://rickandmortyapi.com/api/episode";
+
+    let episodeArray: any[] = [];
+
+    fetch(url)
+      .then(
+        response => response.text()
+      )
+      .then(
+        text => {
+          episodeArray = JSON.parse(text).results
+          for (let i = 0; i < episodeArray.length; i++) {
+            for (let j = 0; j < episodeArray[i].characters.length; j++) {
+              episodeArray[i].characters[j] = fetch(episodeArray[i].characters[j])
+                .then(response => response.text()
+                  .then(text => {
+                    episodeArray[i].characters[j] = JSON.parse(text)
+                    if (i === episodeArray.length - 1 && j === episodeArray[i].characters.length - 1) {
+                   		console.log(episodeArray)
+                    }
+                  })
+                )
+            }
+          }
+        }
+      ).then(() => {
+    });

@@ -1,0 +1,20 @@
+1) 
+ 1. Using a Service as a Module Provider.
+ 2. If Component A is the parent and Component B is a child, then you can use the @Input decorators to send to the child component and @Output + emit function to send from the child to the parent.
+ 3. Use data sent via url with route parameters.
+
+2) 
+Advantages: 
+  1. Works in a module, with the same values for all components in this module, that is, as one box for all components in the module.
+  2. Very fast implementation, data is sent directly to child component from parent or vice versa.
+  3. You can send small data like "id" or something like that
+
+Disadvantages: 
+  1. The data is stored outside the components, that is, there is a dependence on external factors, the service works one for all in modules, which can lead to data loss if used incorrectly.
+  2. Only works when components are each other's child or parent.
+  3. You can’t send a large amount of data, and arrays of objects, this is at least not safe, they can usually send some small data that can in no way damage the data and its confidentiality.
+
+3) 
+  1. When many components in a module must work with the same subject data.
+  2. When the components are related in meaning and / or are inseparable parts of a common component. They must also be each other's child or parent components.
+  3. For example, a search on the server occurs through the "id" parameter and we can go to the url with this parameter from anywhere in the project or even outside the project (example "https://vk.com/id750319205"), you should not transfer a lot of data

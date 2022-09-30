@@ -1,0 +1,10 @@
+1) 
+  1. <div> tag opens but doesn't close
+  2. the </button> tag closes, but there is no <button> tag to open
+2) If user is observable, then I would save it in the constructor to a new user variable
+3) 
+Advantages:
+  1. subscribes to real-time changes returned by an observable
+
+Disadvantages
+  1. the getUserName() function may return an error if the method inside the constructor fails.

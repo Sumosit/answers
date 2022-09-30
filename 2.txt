@@ -1,0 +1,31 @@
+This is a pattern module
+
+https://jsfiddle.net/Sumosit/f8b4pcdk/
+
+function counter(value) {
+    let store = { current: 0}
+    if (value) {
+        store.current = value;
+    }
+
+    return [
+        function() {
+            console.log(store.current);
+        },
+        function() {
+            store.current++;
+        }
+    ]
+
+}
+const [getA, nextA] = counter(1);
+getA(); // 1
+nextA();
+getA(); // 2
+const [getB, nextB] = counter(10);
+nextB();
+getA(); // 2
+getB(); // 11
+nextA();
+getA(); // 3
+getB();
